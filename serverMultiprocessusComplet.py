@@ -24,6 +24,7 @@ def login(con,allConnexions):
     :type allConnexions: queue
     :return: identifiant du client connecté
     :rtype: str
+    
     """
     con.sendall("Veuillez entrer votre nom d'utilisateur : ".encode("utf-8"))
     try:
@@ -69,9 +70,11 @@ def is_known(fpassword, ID) :
   
     :param fpassword: nom du fichier à parcourir
     :type fpassword: str
-    :param ID
+    :param ID: identifiant de l'utilisateur
+    :type ID: str
     :return: true / false
     :rtype: bool
+    
     """
     res=False
     with open(fpassword,'r') as file:
@@ -82,11 +85,15 @@ def is_known(fpassword, ID) :
     return res
   
 def file_len(fname):
-    """Parcours le fichier fname pour compter le nombre de lignes
+    """
+    Parcours le fichier fname pour compter le nombre de lignes
     
+    .. math::
+        n_{lignes}=\sum_{i=1}^{n_{lignes}} 1
+  
     :param fname: nom du fichier à parcourir
     :type fname: str
-    :return: nombre de lignes du fichier
+    :return: nomber de lignes du fichier
     :rtype: int
     """
     i=-1
@@ -100,12 +107,14 @@ def file_len(fname):
     return i + 1
 
 def rmFirstLines(fname,toRemove):
-    """Supprime les 'toRemove' premières lignes du fichier fname
+    """
+    Supprime les 'toRemove' premières lignes du fichier fname
     
     :param fname: nom du fichier à parcourir
     :type fname: str
     :param toRemove: nombre de lignes à supprimer
     :type toRemove: int
+    
     """
     try:
         tmpFile=open(fname+".tmp","w")
@@ -130,6 +139,7 @@ def findLastMsg(fname,ID):
     :type fname: str
     :return: Numéro de ligne du dernier message envoyé par l'utilisateur
     :rtype: int
+    
     """
     last=0
     try:
@@ -143,15 +153,21 @@ def findLastMsg(fname,ID):
     return last
 
 def check_passwd(fpasswd, ID, passwd): 
-	"""Parcours le fichier fpasswd et regarde si le passwd correspond au mot de passe de l'utilisateur ID
-	
-	:param fpasswd : nom du fichier à parcourir
-	:type fpasswd : str
-	:param ID : nom de l'utilisateur dont on check le mot de passe
-	:type ID : str
-	:return True si le mot de passe est le bon, false sinon
-	rtype : bool
-""" 
+	"""
+    Parcours le fichier fpasswd et regarde si le passwd correspond au mot de passe de l'utilisateur ID
+
+    :param fpasswd: nom du fichier à parcourir
+    :type fpasswd: str
+    :param ID: nom de l'utilisateur dont on check le mot de passe
+    :type ID: str
+    :return: True si le mot de passe est le bon, false sinon
+    :rtype: bool
+    
+    Example::    
+        
+        >>> check_passwd("run/passwd.txt","test","test")
+        True
+    """ 
 	res=False
 	with open(fpasswd,'r') as file: 
 		for i, l in enumerate(file):
@@ -163,13 +179,13 @@ def check_passwd(fpasswd, ID, passwd):
 def add_user(fpasswd, ID, passwd): 
 	"""Ajoute un utilisateur et son mot de passe dans le fichier fpasswd
 	
-	:param fpasswd : nom du fichier à parcourir
-	:type fpasswd : str 
-	:param ID : nom de l'utilisateur à ajouter 
-	:type ID : str 
-	:param passwd : mot de passe de l'utilisateur à ajouter 
-	:type passwd : str 	
-"""
+	:param fpasswd: nom du fichier à parcourir
+	:type fpasswd: str 
+	:param ID: nom de l'utilisateur à ajouter 
+	:type ID: str 
+	:param passwd: mot de passe de l'utilisateur à ajouter 
+	:type passwd: str 	
+    """
 	with open(fpasswd,'a') as file: 
 		conc=ID+'    '+passwd
 		file.write(conc)
@@ -186,7 +202,9 @@ def sendHistory(con, fname, startLine=0):
     :param fname: nom du fichier dont on envoie les lignes
     :type fname: str
     :param startLine: numéro de ligne à partir duquel on commence à lire le fichier
-    :type startLine: int"""
+    :type startLine: int
+    
+    """
     
     try:
         with open(fname,'r') as file:
@@ -209,6 +227,7 @@ def send_message(sender,senderID,message,allConnexions):
     :type message: str
     :param allConnexions: ensemble des couples (socket,identifiant) des clients actuellement connectés
     :type allConnexions: queue
+    
     """
     
     #Récupération de l'ensemble des clients connectés
@@ -252,6 +271,7 @@ def handle_com(con, addr,allConnexions):
     :type addr: tuple (str,int)
     :param allConnexions: ensemble des couples (socket,identifiant) des clients actuellement connectés
     :type allConnexions: queue
+    
     """
     try:
         print("Connexion ",con," à  l'adresse ", addr)
@@ -287,33 +307,13 @@ def handle_com(con, addr,allConnexions):
 #               MAIN
 #------------------------------------------------------------------------------
 if __name__ == "__main__":
+    
+    import doctest
+    doctest.testmod(verbose=True)
     #Création si besoin des fichiers nécessaires au fonctionnement
     if not os.path.exists("run"):
         os.makedirs("run")
     open("run/passwd.txt", 'a').close()
     open("run/history.txt", 'a').close()
-    try:
-        mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        mySocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        mySocket.bind(("",8888))
-        mySocket.listen(1)
-        print("En attente de connexion")
-        allConnexions=multiprocessing.Manager().list()
-        while True:
-            con, addr = mySocket.accept()
-            print("Client connecté")
-            process = multiprocessing.Process(target=handle_com, args=(con, addr, allConnexions))
-            process.daemon = True
-            process.start()
-            print("Processus ", process)
 
-    except KeyboardInterrupt:
-        print("Interruption clavier")
-    finally:
-        print("Fermeture des processus:")
-        for process in multiprocessing.active_children():
-            print("Fermeture du processus ", process)
-            process.terminate()
-            process.join()            
-        mySocket.close()
     print("FIN") 
