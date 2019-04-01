@@ -1,5 +1,7 @@
-Ceci est un projet de déploiement web
+Ceci est un projet de déploiement web.
+
 [Documentation](./docs/index.html)
+
 Ce programme est un projet réseau dont j'ai supprimé le main, il ne fait donc rien
 
 FAQ: pourquoi le programme ne fonctionne-t-il pas?
