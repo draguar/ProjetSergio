@@ -4,6 +4,12 @@ Ceci est un projet de déploiement web.
 
 Ce programme est un projet réseau dont j'ai supprimé le main, il ne fait donc rien
 
+Tutoriel:
+vous pouvez vérifier que l'utilisateur "test: test" existe, grâce à la commande `check_passw("run/passwd.txt","test","test")`.
+Si vous obtenez la sortie False, vérifiez que le fichier run/passwd.txt contient bien la ligne "test    test". Si ce n'est pas le cas, ajoutez-la et relancez la commande.
+
+
+
 FAQ: pourquoi le programme ne fonctionne-t-il pas?
 Parce que c'est son rôle.
 
