@@ -13,4 +13,4 @@ Vous devez voir affiché la réussite d'un test unitaire et la sortie "FIN".
 
 
 
-[Licese](LICENSE.md)
+[License](LICENSE.md)
