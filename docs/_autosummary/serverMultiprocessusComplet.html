@@ -1,0 +1,357 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>serverMultiprocessusComplet module &#8212; documentation Projet VANEL 0</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="ProjetSergio" href="modules.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Index des modules Python"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="ProjetSergio"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentation Projet VANEL 0</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">ProjetSergio</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="modules.html"
+                        title="Chapitre précédent">ProjetSergio</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-serverMultiprocessusComplet">
+<span id="servermultiprocessuscomplet-module"></span><h1>serverMultiprocessusComplet module<a class="headerlink" href="#module-serverMultiprocessusComplet" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce programme permet de faire tourner un serveur de discussion instantanée.</p>
+<p class="rubric">Fonctions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#serverMultiprocessusComplet.add_user" title="serverMultiprocessusComplet.add_user"><code class="xref py py-obj docutils literal"><span class="pre">add_user</span></code></a>(fpasswd,&nbsp;ID,&nbsp;passwd)</td>
+<td>Ajoute un utilisateur et son mot de passe dans le fichier fpasswd</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serverMultiprocessusComplet.check_passwd" title="serverMultiprocessusComplet.check_passwd"><code class="xref py py-obj docutils literal"><span class="pre">check_passwd</span></code></a>(fpasswd,&nbsp;ID,&nbsp;passwd)</td>
+<td>Parcours le fichier fpasswd et regarde si le passwd correspond au mot de passe de l’utilisateur ID</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#serverMultiprocessusComplet.file_len" title="serverMultiprocessusComplet.file_len"><code class="xref py py-obj docutils literal"><span class="pre">file_len</span></code></a>(fname)</td>
+<td>Parcours le fichier fname pour compter le nombre de lignes</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serverMultiprocessusComplet.findLastMsg" title="serverMultiprocessusComplet.findLastMsg"><code class="xref py py-obj docutils literal"><span class="pre">findLastMsg</span></code></a>(fname,&nbsp;ID)</td>
+<td>Parcours le fichier fname pour trouver le dernier message envoyé par ID</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#serverMultiprocessusComplet.handle_com" title="serverMultiprocessusComplet.handle_com"><code class="xref py py-obj docutils literal"><span class="pre">handle_com</span></code></a>(con,&nbsp;addr,&nbsp;allConnexions)</td>
+<td>Permet au serveur de communiquer avec un client</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serverMultiprocessusComplet.is_known" title="serverMultiprocessusComplet.is_known"><code class="xref py py-obj docutils literal"><span class="pre">is_known</span></code></a>(fpassword,&nbsp;ID)</td>
+<td>Parcours le fichier fpassword pour vérifier si l’identifiant est déjà contenu</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#serverMultiprocessusComplet.login" title="serverMultiprocessusComplet.login"><code class="xref py py-obj docutils literal"><span class="pre">login</span></code></a>(con,&nbsp;allConnexions)</td>
+<td>Permet l’identification du client lors d’une connexion</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serverMultiprocessusComplet.rmFirstLines" title="serverMultiprocessusComplet.rmFirstLines"><code class="xref py py-obj docutils literal"><span class="pre">rmFirstLines</span></code></a>(fname,&nbsp;toRemove)</td>
+<td>Supprime les “toRemove” premières lignes du fichier fname</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#serverMultiprocessusComplet.sendHistory" title="serverMultiprocessusComplet.sendHistory"><code class="xref py py-obj docutils literal"><span class="pre">sendHistory</span></code></a>(con,&nbsp;fname[,&nbsp;startLine])</td>
+<td>Envoie les lignes du fichier fname sur la socket con</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#serverMultiprocessusComplet.send_message" title="serverMultiprocessusComplet.send_message"><code class="xref py py-obj docutils literal"><span class="pre">send_message</span></code></a>(sender,&nbsp;senderID,&nbsp;message,&nbsp;…)</td>
+<td>Retransmet le message reçu en provenance de sender à tous les autres clients connectés.</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="serverMultiprocessusComplet.add_user">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">add_user</code><span class="sig-paren">(</span><em>fpasswd</em>, <em>ID</em>, <em>passwd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#add_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.add_user" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Ajoute un utilisateur et son mot de passe dans le fichier fpasswd</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpasswd</strong> (<em>str</em>) – nom du fichier à parcourir</li>
+<li><strong>ID</strong> (<em>str</em>) – nom de l’utilisateur à ajouter</li>
+<li><strong>passwd</strong> (<em>str</em>) – mot de passe de l’utilisateur à ajouter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.check_passwd">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">check_passwd</code><span class="sig-paren">(</span><em>fpasswd</em>, <em>ID</em>, <em>passwd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#check_passwd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.check_passwd" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Parcours le fichier fpasswd et regarde si le passwd correspond au mot de passe de l’utilisateur ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first simple">
+<li><strong>fpasswd</strong> (<em>str</em>) – nom du fichier à parcourir</li>
+<li><strong>ID</strong> (<em>str</em>) – nom de l’utilisateur dont on check le mot de passe</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Retourne:</th><td class="field-body"><p class="first">True si le mot de passe est le bon, false sinon</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type retourné:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_passwd</span><span class="p">(</span><span class="s2">&quot;run/passwd.txt&quot;</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.file_len">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">file_len</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#file_len"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.file_len" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Parcours le fichier fname pour compter le nombre de lignes</p>
+<div class="math">
+\[n_{lignes}=\sum_{i=1}^{n_{lignes}} 1\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><strong>fname</strong> (<em>str</em>) – nom du fichier à parcourir</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Retourne:</th><td class="field-body">nomber de lignes du fichier</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type retourné:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.findLastMsg">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">findLastMsg</code><span class="sig-paren">(</span><em>fname</em>, <em>ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#findLastMsg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.findLastMsg" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Parcours le fichier fname pour trouver le dernier message envoyé par ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first simple">
+<li><strong>fname</strong> (<em>str</em>) – nom du fichier à parcourir</li>
+<li><strong>ID</strong> – nom de l’utilisateur dont on recherche le dernier message</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Retourne:</th><td class="field-body"><p class="first">Numéro de ligne du dernier message envoyé par l’utilisateur</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type retourné:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.handle_com">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">handle_com</code><span class="sig-paren">(</span><em>con</em>, <em>addr</em>, <em>allConnexions</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#handle_com"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.handle_com" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Permet au serveur de communiquer avec un client</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>con</strong> (<em>socket</em>) – connexion du client</li>
+<li><strong>addr</strong> (<em>tuple</em><em> (</em><em>str</em><em>,</em><em>int</em><em>)</em>) – adresse du client sous forme d’un couple (adresse IP, numéro de port)</li>
+<li><strong>allConnexions</strong> (<em>queue</em>) – ensemble des couples (socket,identifiant) des clients actuellement connectés</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.is_known">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">is_known</code><span class="sig-paren">(</span><em>fpassword</em>, <em>ID</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#is_known"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.is_known" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Parcours le fichier fpassword pour vérifier si l’identifiant est déjà contenu</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first simple">
+<li><strong>fpassword</strong> (<em>str</em>) – nom du fichier à parcourir</li>
+<li><strong>ID</strong> (<em>str</em>) – identifiant de l’utilisateur</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Retourne:</th><td class="field-body"><p class="first">true / false</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type retourné:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.login">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">login</code><span class="sig-paren">(</span><em>con</em>, <em>allConnexions</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.login" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Permet l’identification du client lors d’une connexion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first simple">
+<li><strong>con</strong> (<em>socket</em>) – connexion du client</li>
+<li><strong>allConnexions</strong> (<em>queue</em>) – ensemble des couples (socket,identifiant) des clients actuellement connectés</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Retourne:</th><td class="field-body"><p class="first">identifiant du client connecté</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type retourné:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.rmFirstLines">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">rmFirstLines</code><span class="sig-paren">(</span><em>fname</em>, <em>toRemove</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#rmFirstLines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.rmFirstLines" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Supprime les “toRemove” premières lignes du fichier fname</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> (<em>str</em>) – nom du fichier à parcourir</li>
+<li><strong>toRemove</strong> (<em>int</em>) – nombre de lignes à supprimer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.sendHistory">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">sendHistory</code><span class="sig-paren">(</span><em>con</em>, <em>fname</em>, <em>startLine=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#sendHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.sendHistory" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Envoie les lignes du fichier fname sur la socket con</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>con</strong> (<em>Socket</em>) – client à qui envoyer les lignes du fichier</li>
+<li><strong>fname</strong> (<em>str</em>) – nom du fichier dont on envoie les lignes</li>
+<li><strong>startLine</strong> (<em>int</em>) – numéro de ligne à partir duquel on commence à lire le fichier</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="serverMultiprocessusComplet.send_message">
+<code class="descclassname">serverMultiprocessusComplet.</code><code class="descname">send_message</code><span class="sig-paren">(</span><em>sender</em>, <em>senderID</em>, <em>message</em>, <em>allConnexions</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/serverMultiprocessusComplet.html#send_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#serverMultiprocessusComplet.send_message" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Retransmet le message reçu en provenance de sender à tous les autres clients connectés.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paramètres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sender</strong> (<em>socket</em>) – émetteur du message</li>
+<li><strong>senderID</strong> (<em>str</em>) – identifiant de l’émetteur du message</li>
+<li><strong>message</strong> (<em>str</em>) – message (encodé) envoyé par sender</li>
+<li><strong>allConnexions</strong> (<em>queue</em>) – ensemble des couples (socket,identifiant) des clients actuellement connectés</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Index des modules Python"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="ProjetSergio"
+             >précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentation Projet VANEL 0</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >ProjetSergio</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#127279; Copyleft (<a href="../../LICENSE.md">GNU General Public License</a>) 2019, Vanel Guillaume.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>
