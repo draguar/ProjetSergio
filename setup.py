@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Projet-deploiement",
-    version="0.0.1",
+    version="0.0.2",
     author="Guillaume VANEL",
     author_email="guillaume.vanel@insa-lyon.fr",
     description="Un projet de création d'un package",
