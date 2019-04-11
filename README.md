@@ -1,6 +1,7 @@
 Ceci est un projet de déploiement web.
 
-[Documentation](./docs/index.html)
+[Documentation](http://projet-deploiement.readthedocs.io/)
+[Python package](https://test.pypi.org/project/Projet-deploiement/)
 
 Ce programme est un projet réseau dont j'ai supprimé le main, il ne fait donc rien
 
